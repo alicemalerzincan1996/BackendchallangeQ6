@@ -94,4 +94,15 @@ public class CompanyService extends ServiceManager<Company,Long> implements Seri
         return companyRepository.findAll();
     }
 
+    public Company save2(Company company){
+        Optional<Company> company1= companyRepository.findOptionalByCompanyname(company.getCompanyname());
+
+        if (!company1.isPresent()){
+
+        return save(company);
+    }
+
+        return null;
+    }
+
 }

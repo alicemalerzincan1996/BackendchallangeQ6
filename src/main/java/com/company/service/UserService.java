@@ -102,6 +102,30 @@ public class UserService extends ServiceManager<User,Long> implements Serializab
         }else throw new UserException(EerrorType.User_BULUNAMADI);
     }
 
+    public User leavework(Long id){
+        Optional<User> user= findById(id);
+        if (user.isPresent()){
+            User user1=user.get();
+            user1.setCompany(null);
+            return save(user1);
+
+
+        }else throw new UserException(EerrorType.User_BULUNAMADI);
+    };
+
+    public User save2(User user){
+        Optional<User> userx=userProfileRepository.findOptionalByUsername(user.getUsername());
+        if (!userx.isPresent()) {
+
+
+
+
+        return save(user);
+
+    }
+        return null;
+    }
+
 
 
 

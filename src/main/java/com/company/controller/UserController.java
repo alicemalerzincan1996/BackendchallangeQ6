@@ -31,6 +31,11 @@ public class UserController {
     public ResponseEntity<User> update (@RequestParam Long id, @RequestBody UserupdateDto dto,@RequestParam Meslek meslek){
         return ResponseEntity.ok(userService.update(id,dto,meslek));
     }
+
+    @PutMapping("/leavework")
+    public ResponseEntity<User> leavework (@RequestParam Long id){
+        return ResponseEntity.ok(userService.leavework(id));
+    }
     @DeleteMapping(DELETE)
     public String deletebyid(@RequestParam Long id){
         return userService.deletebyid(id);
